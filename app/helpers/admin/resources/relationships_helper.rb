@@ -16,7 +16,7 @@ module Admin::Resources::RelationshipsHelper
     @items = if defined?(Kaminari)
       @data.page(page).per(items_per_page)
     elsif defined?(WillPaginate)
-      @data.paginate(:page => params[:page], :per_page => items_per_page)
+      @data.paginate(:page => page, :per_page => items_per_page)
     else
       @data.limit(items_per_page)
     end
